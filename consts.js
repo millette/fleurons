@@ -1,3 +1,3 @@
-export const title = "Astro"
-export const lightTheme = "light"
-export const darkTheme = "dark"
+export const title = "Les Fleurons du Québec"
+export const lightTheme = "forest"
+export const darkTheme = "halloween"
