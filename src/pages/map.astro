@@ -1,0 +1,15 @@
+---
+// self
+import Layout from "!layouts/layout.astro"
+import LeafletMap from "!solid/map.tsx"
+// import Search from "!solid/search.tsx"
+import { title } from "!root/consts.js"
+
+// <Search client:only="solid" />
+
+---
+<Layout title={title}>
+	<p>Aller à <a href="/" class="link">l'accueil</a>.</p>
+	<p>Voici la carte.</p>
+  <LeafletMap client:only="solid" />
+</Layout>
