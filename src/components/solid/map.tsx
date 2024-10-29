@@ -16,6 +16,11 @@ let selectRef: any
 let inputRef: any
 let map: any
 const center: any = [53, -73.5]
+
+function by(key: string) {
+  return (a: any, b: any) => a[key].localeCompare(b[key])
+}
+
 function LeafletMap() {
   let mapRef: HTMLDivElement | undefined = undefined
 
@@ -33,8 +38,13 @@ function LeafletMap() {
 
   const [r, rr] = createSignal([])
 
-  function results() {
-    return r().filter(Boolean)
+  function results() : any {
+    return r().filter(Boolean).sort(by("target"))
+  }
+
+  function first() {
+    if (!results().length!) return
+    return results()[0].obj.photoset
   }
 
   function change(ev: any) {
@@ -76,7 +86,7 @@ function LeafletMap() {
 
   return (
     <div>
-      <div class="flex space-x-10">
+      <div class="my-2 flex space-x-10">
         <select ref={fleuronsRef} on:change={pickFleurons}>
           <option>Choisir le nombre de fleurons</option>
           <option value={1}>1 fleuron</option>
@@ -94,25 +104,22 @@ function LeafletMap() {
         <input placeholder="Chercher" ref={inputRef} onKeyUp={change} type="text" />
       </div>
         {results().map((x: any, i: any) => (
-          <button onClick={[pick, x]} classList={{btn: true, "btn-primary": Boolean(i), "btn-accent": !i}}>{x.target}</button>
+          <button onClick={[pick, x]} classList={{"m-1": true,btn: true, "btn-primary": Boolean(i), "btn-accent": !i}}>{x.target}</button>
         ))}
       {results().length > 0 && <button on:click={resetResults} class="btn btn-error">Reset</button>}
       <div class="mt-2 grid grid-cols-2 gap-4">
         <div ref={mapRef} style="height: 600px"></div>
         <div>
-        {//@ts-expect-error
-        results().length > 0 && <div><img style="height: 600px" class="object-fit" src={results()[0].obj.photoset[0].source} alt={results()[0].obj.photoset[0].description || results()[0].obj.photoset[0].title} />
-        <p>{results()[0].obj.photoset[0].description || results()[0].obj.photoset[0].title}</p></div>}
+        {results().length > 0 && <div><img style="height: 600px" class="object-fit" src={first()[0].source} alt={first()[0].description || first()[0].title} />
+        <p>{first()[0].description || first()[0].title}</p></div>}
         </div>
         <div>
-        {//@ts-expect-error
-        results().length > 0 && <div><img style="height: 600px" class="object-fit" src={results()[0].obj.photoset[1].source} alt={results()[0].obj.photoset[1].description || results()[0].obj.photoset[1].title} />
-        <p>{results()[0].obj.photoset[1].description || results()[0].obj.photoset[1].title}</p></div>}
+        {results().length > 0 && <div><img style="height: 600px" class="object-fit" src={first()[1].source} alt={first()[1].description || first()[1].title} />
+        <p>{first()[1].description || first()[1].title}</p></div>}
         </div>
         <div>
-        {//@ts-expect-error
-        results().length > 0 && <div><img style="height: 600px" class="object-fit" src={results()[0].obj.photoset[2].source} alt={results()[0].obj.photoset[2].description || results()[0].obj.photoset[2].title} />
-        <p>{results()[0].obj.photoset[2].description || results()[0].obj.photoset[2].title}</p></div>}
+        {results().length > 0 && <div><img style="height: 600px" class="object-fit" src={first()[2].source} alt={first()[2].description || first()[2].title} />
+        <p>{first()[2].description || first()[2].title}</p></div>}
         </div>
       </div>
     </div>
