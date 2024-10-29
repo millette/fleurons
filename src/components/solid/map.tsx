@@ -7,7 +7,7 @@ import 'leaflet.markercluster'
 
 // self
 import markerIcon from "!root/node_modules/leaflet/dist/images/marker-icon.png"
-import data from "!root/les-fleurons.json"
+import data from "!root/les-fleurons-v3.json"
 
 const regions = [...new Set(data.map((x) => x.region))]
 
@@ -48,7 +48,7 @@ function LeafletMap() {
     inputRef.value = a.target
     const coords: any = [a.obj.longitude, a.obj.latitude]
     L.marker(coords).addTo(map)
-      .bindPopup(`${a.obj.name} (${a.obj.region}) ${a.obj.score} fleurons`)
+      .bindPopup(`${a.obj.name} (${a.obj.region}) ${a.obj.nFleurons} fleurons`)
       .openPopup()
     map.setView(coords, 7)
   }
@@ -71,12 +71,11 @@ function LeafletMap() {
   function pickFleurons(a: any) {
     if (!a.target.value) return
     // @ts-expect-error
-    rr(data.filter((x) => x.score === parseInt(a.target.value)).map((x) => ({ target: x.name, obj: x})))
+    rr(data.filter((x) => x.nFleurons === parseInt(a.target.value)).map((x) => ({ target: x.name, obj: x})))
   }
 
   return (
     <div>
-      <h1>Leaflet Map</h1>
       <div class="flex space-x-10">
         <select ref={fleuronsRef} on:change={pickFleurons}>
           <option>Choisir le nombre de fleurons</option>
@@ -94,24 +93,26 @@ function LeafletMap() {
         </select>
         <input placeholder="Chercher" ref={inputRef} onKeyUp={change} type="text" />
       </div>
-      <div>Search and results</div>
         {results().map((x: any, i: any) => (
           <button onClick={[pick, x]} classList={{btn: true, "btn-primary": Boolean(i), "btn-accent": !i}}>{x.target}</button>
         ))}
       {results().length > 0 && <button on:click={resetResults} class="btn btn-error">Reset</button>}
-      <div class="grid grid-cols-2 gap-4">
+      <div class="mt-2 grid grid-cols-2 gap-4">
         <div ref={mapRef} style="height: 600px"></div>
         <div>
         {//@ts-expect-error
-        results().length > 0 && <img style="height: 600px" class="object-fit" src={results()[0].obj.images[0]} alt="nope" />}
+        results().length > 0 && <div><img style="height: 600px" class="object-fit" src={results()[0].obj.photoset[0].source} alt={results()[0].obj.photoset[0].description || results()[0].obj.photoset[0].title} />
+        <p>{results()[0].obj.photoset[0].description || results()[0].obj.photoset[0].title}</p></div>}
         </div>
         <div>
         {//@ts-expect-error
-        results().length > 0 && <img style="height: 600px" class="object-fit" src={results()[0].obj.images[1]} alt="nope" />}
+        results().length > 0 && <div><img style="height: 600px" class="object-fit" src={results()[0].obj.photoset[1].source} alt={results()[0].obj.photoset[1].description || results()[0].obj.photoset[1].title} />
+        <p>{results()[0].obj.photoset[1].description || results()[0].obj.photoset[1].title}</p></div>}
         </div>
         <div>
         {//@ts-expect-error
-        results().length > 0 && <img style="height: 600px" class="object-fit" src={results()[0].obj.images[2]} alt="nope" />}
+        results().length > 0 && <div><img style="height: 600px" class="object-fit" src={results()[0].obj.photoset[2].source} alt={results()[0].obj.photoset[2].description || results()[0].obj.photoset[2].title} />
+        <p>{results()[0].obj.photoset[2].description || results()[0].obj.photoset[2].title}</p></div>}
         </div>
       </div>
     </div>
