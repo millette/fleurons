@@ -50,7 +50,7 @@ function LeafletMap() {
     L.marker(coords).addTo(map)
       .bindPopup(`${a.obj.name} (${a.obj.region}) ${a.obj.score} fleurons`)
       .openPopup()
-    map.setView(coords, 7);
+    map.setView(coords, 7)
   }
 
   function resetResults() {
@@ -96,7 +96,7 @@ function LeafletMap() {
       </div>
       <div>Search and results</div>
         {results().map((x: any, i: any) => (
-          <button on:click={[pick, x]} classList={{btn: true, "btn-primary": Boolean(i), "btn-accent": !i}}>{x.target}</button>
+          <button onClick={[pick, x]} classList={{btn: true, "btn-primary": Boolean(i), "btn-accent": !i}}>{x.target}</button>
         ))}
       {results().length > 0 && <button on:click={resetResults} class="btn btn-error">Reset</button>}
       <div class="grid grid-cols-2 gap-4">
