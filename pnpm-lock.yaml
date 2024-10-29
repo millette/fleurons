@@ -8,21 +8,12 @@ importers:
 
   .:
     dependencies:
-      '@astrojs/check':
-        specifier: ^0.9.4
-        version: 0.9.4(typescript@5.6.3)
       '@astrojs/solid-js':
         specifier: ^4.4.2
         version: 4.4.2(solid-js@1.9.3)(vite@5.4.10(@types/node@22.7.6))
       '@astrojs/tailwind':
         specifier: ^5.1.2
         version: 5.1.2(astro@4.16.7(@types/node@22.7.6)(rollup@4.24.3)(typescript@5.6.3))(tailwindcss@3.4.14)
-      '@types/leaflet':
-        specifier: ^1.9.12
-        version: 1.9.12
-      '@types/leaflet.markercluster':
-        specifier: ^1.5.4
-        version: 1.5.4
       astro:
         specifier: ^4.16.7
         version: 4.16.7(@types/node@22.7.6)(rollup@4.24.3)(typescript@5.6.3)
@@ -38,28 +29,37 @@ importers:
       leaflet.markercluster:
         specifier: ^1.5.3
         version: 1.5.3(leaflet@1.9.4)
-      sharp:
-        specifier: ^0.33.5
-        version: 0.33.5
       solid-js:
         specifier: ^1.9.3
         version: 1.9.3
-      typescript:
-        specifier: ^5.6.3
-        version: 5.6.3
     devDependencies:
+      '@astrojs/check':
+        specifier: ^0.9.4
+        version: 0.9.4(typescript@5.6.3)
       '@tailwindcss/typography':
         specifier: ^0.5.15
         version: 0.5.15(tailwindcss@3.4.14)
+      '@types/leaflet':
+        specifier: ^1.9.14
+        version: 1.9.14
+      '@types/leaflet.markercluster':
+        specifier: ^1.5.4
+        version: 1.5.4
       '@types/node':
         specifier: ^22.7.6
         version: 22.7.6
       daisyui:
         specifier: ^4.12.14
         version: 4.12.14(postcss@8.4.47)
+      sharp:
+        specifier: ^0.33.5
+        version: 0.33.5
       tailwindcss:
         specifier: ^3.4.14
         version: 3.4.14
+      typescript:
+        specifier: ^5.6.3
+        version: 5.6.3
 
 packages:
 
@@ -757,8 +757,8 @@ packages:
   '@types/leaflet.markercluster@1.5.4':
     resolution: {integrity: sha512-tfMP8J62+wfsVLDLGh5Zh1JZxijCaBmVsMAX78MkLPwvPitmZZtSin5aWOVRhZrCS+pEOZwNzexbfWXlY+7yjg==}
 
-  '@types/leaflet@1.9.12':
-    resolution: {integrity: sha512-BK7XS+NyRI291HIo0HCfE18Lp8oA30H1gpi1tf0mF3TgiCEzanQjOqNZ4x126SXzzi2oNSZhZ5axJp1k0iM6jg==}
+  '@types/leaflet@1.9.14':
+    resolution: {integrity: sha512-sx2q6MDJaajwhKeVgPSvqXd8rhNJSTA3tMidQGduZn9S6WBYxDkCpSpV5xXEmSg7Cgdk/5vJGhVF1kMYLzauBg==}
 
   '@types/mdast@4.0.4':
     resolution: {integrity: sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA==}
@@ -3140,9 +3140,9 @@ snapshots:
 
   '@types/leaflet.markercluster@1.5.4':
     dependencies:
-      '@types/leaflet': 1.9.12
+      '@types/leaflet': 1.9.14
 
-  '@types/leaflet@1.9.12':
+  '@types/leaflet@1.9.14':
     dependencies:
       '@types/geojson': 7946.0.14
 
