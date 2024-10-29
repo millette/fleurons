@@ -1,6 +1,7 @@
 # build output
 dist/
 parsed-data-v2.json
+les-fleurons-v2.json
 
 # generated types
 .astro/
