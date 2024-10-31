@@ -13,13 +13,13 @@ importers:
         version: 4.4.2(solid-js@1.9.3)(vite@5.4.10(@types/node@22.8.4))
       '@astrojs/tailwind':
         specifier: ^5.1.2
-        version: 5.1.2(astro@4.16.7(@types/node@22.8.4)(rollup@4.24.3)(typescript@5.6.3))(tailwindcss@3.4.14)
+        version: 5.1.2(astro@4.16.8(@types/node@22.8.4)(rollup@4.24.3)(typescript@5.6.3))(tailwindcss@3.4.14)
       astro:
-        specifier: ^4.16.7
-        version: 4.16.7(@types/node@22.8.4)(rollup@4.24.3)(typescript@5.6.3)
+        specifier: ^4.16.8
+        version: 4.16.8(@types/node@22.8.4)(rollup@4.24.3)(typescript@5.6.3)
       astro-devtool-breakpoints:
         specifier: ^0.3.0
-        version: 0.3.0(astro@4.16.7(@types/node@22.8.4)(rollup@4.24.3)(typescript@5.6.3))
+        version: 0.3.0(astro@4.16.8(@types/node@22.8.4)(rollup@4.24.3)(typescript@5.6.3))
       fuzzysort:
         specifier: ^3.1.0
         version: 3.1.0
@@ -185,6 +185,11 @@ packages:
 
   '@babel/parser@7.26.1':
     resolution: {integrity: sha512-reoQYNiAJreZNsJzyrDNzFQ+IQ5JFiIzAHJg9bn94S3l+4++J7RsIhNMoB+lgP/9tpmiAQqspv+xfdxTSzREOw==}
+    engines: {node: '>=6.0.0'}
+    hasBin: true
+
+  '@babel/parser@7.26.2':
+    resolution: {integrity: sha512-DWMCZH9WA4Maitz2q21SRKHo9QXZxkDsbNZoVD62gusNtNBBqDg9i7uOhASfTfIGNzW+O+r7+jAlM8dwphcJKQ==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -771,8 +776,8 @@ packages:
     peerDependencies:
       astro: ^4.0.0
 
-  astro@4.16.7:
-    resolution: {integrity: sha512-nON+8MUEkWTFwXbS4zsQIq4t0Fs42eulM4x236AL+qNnWfqNAOOqAnFxO1dxfJ1q+XopIBbbT9Mtev+0zH47PQ==}
+  astro@4.16.8:
+    resolution: {integrity: sha512-BRWFP0UQ8gkOr90KQW7oooedtgCk/j91pyv1WQUmgZwMUZk/v0HJRiddAZgvGCECOnmZFc9ZqRZnBsAMUgApNQ==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2349,9 +2354,9 @@ snapshots:
       - supports-color
       - vite
 
-  '@astrojs/tailwind@5.1.2(astro@4.16.7(@types/node@22.8.4)(rollup@4.24.3)(typescript@5.6.3))(tailwindcss@3.4.14)':
+  '@astrojs/tailwind@5.1.2(astro@4.16.8(@types/node@22.8.4)(rollup@4.24.3)(typescript@5.6.3))(tailwindcss@3.4.14)':
     dependencies:
-      astro: 4.16.7(@types/node@22.8.4)(rollup@4.24.3)(typescript@5.6.3)
+      astro: 4.16.8(@types/node@22.8.4)(rollup@4.24.3)(typescript@5.6.3)
       autoprefixer: 10.4.20(postcss@8.4.47)
       postcss: 8.4.47
       postcss-load-config: 4.0.2(postcss@8.4.47)
@@ -2457,6 +2462,10 @@ snapshots:
       '@babel/types': 7.26.0
 
   '@babel/parser@7.26.1':
+    dependencies:
+      '@babel/types': 7.26.0
+
+  '@babel/parser@7.26.2':
     dependencies:
       '@babel/types': 7.26.0
 
@@ -2964,11 +2973,11 @@ snapshots:
 
   array-iterate@2.0.1: {}
 
-  astro-devtool-breakpoints@0.3.0(astro@4.16.7(@types/node@22.8.4)(rollup@4.24.3)(typescript@5.6.3)):
+  astro-devtool-breakpoints@0.3.0(astro@4.16.8(@types/node@22.8.4)(rollup@4.24.3)(typescript@5.6.3)):
     dependencies:
-      astro: 4.16.7(@types/node@22.8.4)(rollup@4.24.3)(typescript@5.6.3)
+      astro: 4.16.8(@types/node@22.8.4)(rollup@4.24.3)(typescript@5.6.3)
 
-  astro@4.16.7(@types/node@22.8.4)(rollup@4.24.3)(typescript@5.6.3):
+  astro@4.16.8(@types/node@22.8.4)(rollup@4.24.3)(typescript@5.6.3):
     dependencies:
       '@astrojs/compiler': 2.10.3
       '@astrojs/internal-helpers': 0.4.1
@@ -3621,7 +3630,7 @@ snapshots:
 
   magicast@0.3.5:
     dependencies:
-      '@babel/parser': 7.26.1
+      '@babel/parser': 7.26.2
       '@babel/types': 7.26.0
       source-map-js: 1.2.1
 
