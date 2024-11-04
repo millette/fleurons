@@ -22,7 +22,7 @@
   "dependencies": {
     "@astrojs/solid-js": "^4.4.2",
     "@astrojs/tailwind": "^5.1.2",
-    "astro": "^4.16.8",
+    "astro": "^4.16.9",
     "astro-devtool-breakpoints": "^0.3.0",
     "fuzzysort": "^3.1.0",
     "leaflet": "^1.9.4",
